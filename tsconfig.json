@@ -18,13 +18,15 @@
     "noStrictGenericChecks": false,
     "noUncheckedIndexedAccess": true,
     "noUnusedLocals": true,
-    "noUnusedParameters": true,
+    "noUnusedParameters": false,
     "resolveJsonModule": true,
     "skipLibCheck": true,
     "strict": false,
-    "target": "es2015",
-    "outDir": "./dist",
-    "isolatedModules": true,
+    "noEmit": true,
+    "target": "esnext",
+    "declaration": true,
+    "outDir": "dist",
+    "isolatedModules": true
   },
   "include": ["src"]
 }

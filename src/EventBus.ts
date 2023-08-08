@@ -1,4 +1,4 @@
-export type EventHandler<T extends EventInterface> = (event: T) => void
+export type EventHandler<T extends EventInterface> = (event: T) => Promise<void>
 
 export interface EventInterface {}
 
@@ -16,7 +16,7 @@ export class EventBus {
     subscribe<E extends EventInterface>(observer: object, eventClass: EventClass, handler: EventHandler<E>) {
         this.observers.add(observer)
         this.createEventEntryIfMissing(eventClass)
-        this.handlers.get(eventClass)!.push({ observer, handler })
+        this.handlers.get(eventClass)!.push({ observer, handler: handler.bind(observer) })
     }
 
     private createEventEntryIfMissing(eventClass: EventClass) {
@@ -34,7 +34,7 @@ export class EventBus {
         }
     }
 
-    private eventObserverHandlers(eventClass) {
+    private eventObserverHandlers(eventClass: EventClass) {
         return this.handlers.get(eventClass)!
     }
 
