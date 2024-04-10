@@ -3,7 +3,7 @@
 [![CI Status](https://github.com/nbottarini/eventbus-js/actions/workflows/main.yml/badge.svg?branch=main)](https://github.com/nbottarini/eventbus-js/actions)
 
 # EventBus
-Simple and lightweight EventBus javascript implementation
+Simple Typescript and Javascript event bus
 
 ## Installation
 
